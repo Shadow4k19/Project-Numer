@@ -74,6 +74,7 @@
     },
     {
         "title":"Q&A" ,
-        "icon":"bi-question-circle"
+        "icon":"bi-question-circle",
+        "path": "/q&a"
     }
 ]
