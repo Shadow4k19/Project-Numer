@@ -5,33 +5,33 @@
         "path" : "/"
     },
     {
-        "title": "List of Standard",
+        "title": "Root of Equation",
         "icon": "bi-1-circle",
         "childrens": [
             {
                 "title": "Bisection",
                 "path": "/Bisection"
             },
-                {
-                    "title": "False Position",
-                    "path": "/FalsePosition"
-                },
-                {
-                    "title": "One Point iteration",
-                    "path": "/OnePointiteration"
-                },
-                {
-                    "title": "Taylor Series",
-                    "path": "/Taylorseries"
-                },
-                {
-                    "title": "Newton Raphson",
-                    "path": "/NewtonRaphson"
-                },
-                {
-                    "title": "Secant",
-                    "path": "/Secant"
-                }
+            {
+                "title": "False Position",
+                "path": "/Falseposition"
+            },
+            {
+                "title": "One Point iteration",
+                "path": "/OnePointiteration"
+            },
+            {
+                "title": "Taylor Series",
+                "path": "/Taylorseries"
+            },
+            {
+                "title": "Newton Raphson",
+                "path": "/NewtonRaphson"
+            },
+            {
+                "title": "Secant",
+                "path": "/Secant"
+            }
             ]
     },
     {
@@ -42,34 +42,34 @@
                 "title": "Cramer's Rule",
                 "path": "/cramerrule"
             },
-                {
-                    "title": "Gauss Elimination",
-                    "path": "/gausselimination"
-                },
-                {
-                    "title": "Gauss Jordan",
-                    "path": "/guassjordan"
-                },
-                {
-                    "title": "LU Decomposition",
-                    "path": "/ludecompositon"
-                },
-                {
-                    "title": "Choleskey Decomposition",
-                    "path": "/choleskey"
-                },
-                {
-                    "title": "Jacobi Iteration",
-                    "path": "/jacobi"
-                },
-                {
-                    "title": "Gauss Seidel",
-                    "path": "/gaussseidel"
-                },
-                {
-                    "title": "Conjugate Gradient",
-                    "path": "/conjugategradient"
-                }
+            {
+                "title": "Gauss Elimination",
+                "path": "/gausselimination"
+            },
+            {
+                "title": "Gauss Jordan",
+                "path": "/guassjordan"
+            },
+            {
+                "title": "LU Decomposition",
+                "path": "/ludecompositon"
+            },
+            {
+                "title": "Choleskey Decomposition",
+                "path": "/choleskey"
+            },
+            {
+                "title": "Jacobi Iteration",
+                "path": "/jacobi"
+            },
+            {
+                "title": "Gauss Seidel",
+                "path": "/gaussseidel"
+            },
+            {
+               "title": "Conjugate Gradient",
+               "path": "/conjugategradient"
+            }
         ]
     },
     {
