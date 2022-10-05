@@ -1,4 +1,29 @@
-.TitleBi{
+.containerBi{
+  padding-left: 625px;
+  padding-top: 20px;
+  font-size: 25px;
+}
+.Titlebi{
+  font-weight: bolder;
   position: relative;
 }
 
+label{
+  display: inline-block;
+  width: 11px;
+  padding-left: 120px;
+  height: 100px;
+}
+
+.buttonbi{
+  padding-left: 155px;
+  padding-top: 20px;
+}
+button{
+  padding: 10px;
+  background-color:cornflowerblue;
+  border-radius: 7px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+}
