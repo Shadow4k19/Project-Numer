@@ -1,16 +1,14 @@
 import React from "react";
-import './Bisection.css';
-import {useState} from 'react';
 
-export default function Bisection(){
+export default function Onepoint(){
     return(
-        <div className="TitleBi"><h1 style={{color:'black',paddingLeft:'725px',paddingTop:'75px'}}>Bisection</h1>
+    <div><h1 style={{color:'black',paddingLeft:'635px',paddingTop:'75px'}}>OnePoint iteration</h1>
             <div className="containerBi" style={{color:'black'}}>
             <form>
                 <label>
                     <h4 style={{paddingLeft:'80px'}}>Xl :</h4>
                 </label> 
-                    <input size='1' padding='500' width='100'></input>
+                    <input size='1' padding='10px' width='100'></input>
                 <label>    
                     <h4 style={{paddingTop:'20px'}}>Xr :</h4>
                 </label>

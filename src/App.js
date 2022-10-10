@@ -5,6 +5,8 @@ import Home from './component/Home';
 import Sidebar from './component/Sidebar';
 import Bisection from './component/Bisection';
 import Falseposition from './component/Falseposition';
+import Onepoint from './component/Onepoint';
+import QandA from './component/Q&A';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path ='/'element = {<Home />}></Route>
         <Route path ='/Bisection'element = {<Bisection />}></Route>
         <Route path ='/Falseposition'element = {<Falseposition />}></Route>
+        <Route path='/OnePointiteration'element = {<Onepoint />}></Route>
+        <Route path='/Q&A'element = {<QandA />}></Route>
       </Routes>
       </BrowserRouter>
       </div>
