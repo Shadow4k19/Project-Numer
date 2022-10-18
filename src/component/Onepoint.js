@@ -15,9 +15,9 @@ export default function Onepoint(){
                     <input size='1'></input>
                 <div className="labelfun">
                 <label>    
-                    <h4 style={{paddingLeft:'0px'}}>Function :</h4>
+                    <h4 style={{paddingLeft:'45px'}}>Function :</h4>
                 </label>
-                    <input size='30'></input>
+                    <input size='15'></input>
                 </div>
             </form>
             <div className="buttonbi">
