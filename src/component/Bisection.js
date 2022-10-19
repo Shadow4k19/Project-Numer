@@ -37,6 +37,7 @@ export default function Bisection(){
         console.log(Xr);
         console.log(Function);
         console.log(Xm);
+        document.getElementById("ShowXM").innerHTML = Xm;
     }
     return(
         <div className="TitleBi"><h1 style={{color:'black',paddingLeft:'725px',paddingTop:'75px'}}>Bisection</h1>
@@ -45,11 +46,11 @@ export default function Bisection(){
                 <label>
                     <h4 style={{paddingLeft:'80px'}}>Xl :</h4>
                 </label> 
-                    <input id = "xl" placeholder="Xl" size='1' padding='500' width='100'></input>
+                    <input id = "xl" placeholder="Xl" type='number' style={{ width: "40px" }} size='1' padding='500' width='100'></input>
                 <label>    
                     <h4 style={{paddingTop:'20px'}}>Xr :</h4>
                 </label>
-                    <input id = "xr" placeholder="Xr" size='1'></input>
+                    <input id = "xr" placeholder="Xr" type = 'number' style = {{ width: "40px"}} size='1'></input>
                 <div className="labelfunc">
                 <label>    
                     <h4 style={{paddingLeft:'45px'}}>Function :</h4>
@@ -58,9 +59,10 @@ export default function Bisection(){
                 </div>
             </form>
             <div className="buttonbi">
-                <button>Calculate</button>
+                <button onClick={getValue}>Calculate</button>
             </div>
             </div>
+            <div id="ShowXM" className="ShowXM" style={{color: 'black'}}></div>
         </div>
     );
-}
+}   
