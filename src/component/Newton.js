@@ -1,42 +1,46 @@
 import React from "react";
 import { Parser } from "expr-eval";
 import ChartOne from "./ChartOne";
+const math = require('mathjs');
 
 var Xone = [];
 var loopone = [];
 
-export default function Onepoint(){
-    function Onepoint(X,Function){
+export default function Newton(){
+    function Newtonfunction(X,Function){
         const parser = new Parser();
         const func = (x) =>{
             let expr = parser.parse(Function);
             return expr.evaluate({x: (x)});
         }
-        var xold = X;
-        var xnew = 0;
+        const funcprime = (x) =>{
+            const exprfxprime  = math.derivative(math.parse(Function), 'x')
+            return exprfxprime.evaluate({x: x});
+        }
+        var x = X;
+        var dx = 0;
         var Error = 0;
         var i = 0;
         do{
-            xnew = func(xold);
-            Xone.push(xnew);
-            Error = Math.abs((xnew-xold)/xnew)*100;
-            i++;
-            loopone.push(i);
-            xold = xnew;
-        }while(Error>0.0000001&&i!==50);
-        console.log(xnew);
-        return "X = "+xnew;
+            dx = ((-func(x))/(funcprime(x)));
+            Xone.push(dx);
+            x += dx;
+            Error = Math.abs((dx)/x)*100;
+            loopone.push(i++);
+        }while(Error>0.0000001);
+        console.log(x);
+        return "X = "+x;
     }
     function getValue (){
         var X = document.getElementById("x").value;
         var Function = document.getElementById("Function").value;
-        var Xans = Onepoint(X,Function);
+        var Xans = Newtonfunction(X,Function);
         console.log(X);
         console.log(Function);
         document.getElementById("ShowAns").innerHTML = Xans;
     }
     return(
-        <div><h1 style={{color:'black',paddingLeft:'720px',paddingTop:'75px'}}>One point</h1>
+        <div><h1 style={{color:'black',paddingLeft:'640px',paddingTop:'75px'}}>Newton Raphson</h1>
             <div className="containerBi" style={{color:'black'}}>
             <form>
                 <label>

@@ -1,6 +1,12 @@
 import React from "react";
 import './Falseposition.css';
 import { Parser } from "expr-eval";
+import ChartBI from './ChartBi';
+
+var xlbi = [];
+var xrbi = [];
+var xmbi = [];
+var loopbi = [];
 
 export default function Falseposition(){
     function FalsePositionFuction(Xl,Xr,Function){
@@ -9,12 +15,18 @@ export default function Falseposition(){
             let expr = parser.parse(Function);
             return expr.evaluate({x: (x)});
         }
-        var xl = parseInt(Xl);
-        var xr = parseInt(Xr);
+        var xl = Xl;
+        var xr = Xr;
         var Error = 0;
         var xm, xold;
+        var i = 0;
+        var count = 0;
         do{
-            xm = (xl-xr)/2;
+            xlbi.push(xl);
+            xrbi.push(xr);
+            loopbi.push(i++);
+            xm=((xl*func(xr))-(xr*func(xl)))/(func(xr)-func(xl));
+            xmbi.push(xm);
             if(func(xm)*func(xr)<0){
                 xold = xl;
                 xl = xm;
@@ -24,7 +36,8 @@ export default function Falseposition(){
                 xr = xm;
             }
             Error = Math.abs((xm-xold)/xm);
-        }while(Error>0.000001);
+            count++;
+        }while(Error>0.000001&&count!== 50 );
         console.log(xm);
         return "Xm = "+xm;
     }
@@ -63,6 +76,10 @@ export default function Falseposition(){
             </div>
             </div>
             <div id="ShowXM" className="ShowXM" style={{color: 'black'}}></div>
+            <div id = "showchart" style={{paddingLeft:'350px' , paddingTop:'30px'}}>
+                <ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
+            </div>
         </div>
+        
     )
 }
