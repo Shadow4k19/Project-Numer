@@ -17,18 +17,19 @@ export default function Newton(){
             const exprfxprime  = math.derivative(math.parse(Function), 'x')
             return exprfxprime.evaluate({x: x});
         }
-        var x = X;
+        var x = parseFloat(X);
         var dx = 0;
         var Error = 0;
         var i = 0;
         do{
-            dx = ((-func(x))/(funcprime(x)));
-            Xone.push(dx);
+            dx = ((-1*func(x))/(funcprime(x)));
             x += dx;
+            console.log(dx);
+            Xone.push(x);
             Error = Math.abs((dx)/x)*100;
             loopone.push(i++);
         }while(Error>0.0000001);
-        console.log(x);
+        //console.log(x);
         return "X = "+x;
     }
     function getValue (){
@@ -59,7 +60,7 @@ export default function Newton(){
             </div>
             </div>
             <div id="ShowAns" className="ShowXM" style={{color: 'black'}}></div>
-            <div id = "showchart" style={{paddingLeft:'350px' , paddingTop:'30px'}}>
+            <div id = "showchart" style={{paddingLeft:'620px' , paddingTop:'30px'}}>
                 <ChartOne data = {{x:Xone,loop:loopone}}/>
             </div>
         </div>

@@ -35,9 +35,10 @@ export default function Bisection(){
                 xold = xr;
                 xr = xm;
             }
+            console.log("Xm = "+xm);
             Error = Math.abs((xm-xold)/xm);
             count++;
-        }while(Error>0.000001&&count!==50);
+        }while(Error>0.000001&&count!==100);
         console.log(xm);
         return "Xm = "+xm;
     }
@@ -76,7 +77,7 @@ export default function Bisection(){
             </div>
             </div>
             <div id="ShowXM" className="ShowXM" style={{color: 'black'}}></div>
-            <div id = "showchart" style={{paddingLeft:'350px' , paddingTop:'30px'}}>
+            <div id = "showchart" style={{paddingLeft:'590px' , paddingTop:'30px'}}>
                 <ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
             </div>
         </div>

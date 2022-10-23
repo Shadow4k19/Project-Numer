@@ -8,6 +8,7 @@ import Falseposition from './component/Falseposition';
 import Onepoint from './component/Onepoint';
 import QandA from './component/Q&A';
 import Newton from './component/Newton'
+import ChamerRule from './component/Chamer_Rule';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path ='/Falseposition'element = {<Falseposition />}></Route>
         <Route path='/OnePointiteration'element = {<Onepoint />}></Route>
         <Route path='/NewtonRaphson' element = {<Newton />}></Route>
+        <Route path='/cramerrule' element = {<ChamerRule />}></Route>
         <Route path='/Q&A'element = {<QandA />}></Route>
       </Routes>
       </BrowserRouter>

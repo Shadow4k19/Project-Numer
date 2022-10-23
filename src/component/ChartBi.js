@@ -37,7 +37,7 @@ class ApexChartBI extends Component {
             dashArray: [0, 8, 5]
           },
           title: {
-            text: 'Page Statistics',
+            text: 'Monkey D Grap',
             align: 'left'
           },
           legend: {
