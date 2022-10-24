@@ -77,8 +77,10 @@ export default function Bisection(){
             </div>
             </div>
             <div id="ShowXM" className="ShowXM" style={{color: 'black'}}></div>
-            <div id = "showchart" style={{paddingLeft:'630px' , paddingTop:'30px'}}>
+            <div className="chartcontrainer">
+            <div id = "showchart" className = 'chart' style={{paddingLeft:'630px' , paddingTop:'30px'}}>
                 <ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
+            </div>
             </div>
         </div>
     );

@@ -58,7 +58,7 @@ export default function Gauss_seidel(){
         <div style={{paddingLeft:'170px'}}>
             <button onClick={Getmat}>Submit</button>
         </div>
-        <div id = 'Matrix' style={{paddingTop:'10px'}}></div>
+        <div id = 'Matrix' className="matrix" style={{paddingTop:'10px'}}></div>
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
