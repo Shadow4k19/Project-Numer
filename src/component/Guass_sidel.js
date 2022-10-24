@@ -2,7 +2,7 @@ import React from "react";
 import './Matrix.css'
 const math = require('mathjs');
 
-export default function ChamerRule(){
+export default function Gauss_seidel(){
     function Getmat(){
         var Size = document.getElementById("Matnum").value;
         var MatString = "";
@@ -47,7 +47,7 @@ export default function ChamerRule(){
         return "Y = "+x;
     }
     return(
-        <div><h1 style={{color:'black',paddingLeft:'685px',paddingTop:'75px'}}>Chamer_Rule</h1>
+        <div><h1 style={{color:'black',paddingLeft:'685px',paddingTop:'75px'}}>Gauss_seidel</h1>
         <div className="containerBi" style={{color:'black'}}>
         <form>
             <label>

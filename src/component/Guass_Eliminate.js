@@ -1,8 +1,7 @@
 import React from "react";
-import './Matrix.css'
 const math = require('mathjs');
 
-export default function ChamerRule(){
+export default function Guass_Elimination(){
     function Getmat(){
         var Size = document.getElementById("Matnum").value;
         var MatString = "";
@@ -10,7 +9,7 @@ export default function ChamerRule(){
             for(var j = 0 ; j<Size ; j++){
                 MatString +=" <input id = 'Matrix'"+i+j+" className = 'inputmat' placeholder=' ' type='number' style='width: '40px''></input>"
             }
-            MatString +=" b"+i+""+' '+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' placeholder=' ' type='number' style='width: '40px''></input><br>";
+            MatString +=" b "+' '+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' placeholder=' ' type='number' style='width: '40px''></input><br>";
         }
         document.getElementById("Matrix").innerHTML = MatString;
     }
@@ -47,7 +46,7 @@ export default function ChamerRule(){
         return "Y = "+x;
     }
     return(
-        <div><h1 style={{color:'black',paddingLeft:'685px',paddingTop:'75px'}}>Chamer_Rule</h1>
+        <div><h1 style={{color:'black',paddingLeft:'625px',paddingTop:'75px'}}>Guass_Elimination</h1>
         <div className="containerBi" style={{color:'black'}}>
         <form>
             <label>

@@ -55,7 +55,7 @@ export default function Onepoint(){
             </div>
             </div>
             <div id="ShowAns" className="ShowXM" style={{color: 'black'}}></div>
-            <div id = "showchart" style={{paddingLeft:'630px' , paddingTop:'30px'}}>
+            <div id = "showchart" style={{paddingLeft:'650px' , paddingTop:'30px'}}>
                 <ChartOne data = {{x:Xone,loop:loopone}}/>
             </div>
         </div>

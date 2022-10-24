@@ -1,36 +1,13 @@
 import React from "react";
-import { Parser } from "expr-eval";
 import ChartOne from "./ChartOne";
-const math = require('mathjs');
 
 var Xone = [];
 var loopone = [];
 
 export default function Newton(){
     function Newtonfunction(X,Function){
-        const parser = new Parser();
-        const func = (x) =>{
-            let expr = parser.parse(Function);
-            return expr.evaluate({x: (x)});
-        }
-        const funcprime = (x) =>{
-            const exprfxprime  = math.derivative(math.parse(Function), 'x')
-            return exprfxprime.evaluate({x: x});
-        }
-        var x = parseFloat(X);
-        var dx = 0;
-        var Error = 0;
-        var i = 0;
-        do{
-            dx = ((-1*func(x))/(funcprime(x)));
-            x += dx;
-            console.log(dx);
-            Xone.push(x);
-            Error = Math.abs((dx)/x)*100;
-            loopone.push(i++);
-        }while(Error>0.0000001);
-        //console.log(x);
-        return "X = "+x;
+       
+        return "X = ";
     }
     function getValue (){
         var X = document.getElementById("x").value;
