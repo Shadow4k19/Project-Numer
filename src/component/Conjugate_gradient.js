@@ -16,11 +16,15 @@ export default function Conjugate_gradient(){
     }
     function getmat2(){
         var Size = document.getElementById("Matnum").value;
+        var MatA = [];
+        var MatB = [];
         for(var i = 0 ; i<Size ; i++){
+            MatA.push([]);
+            MatB.push([]);
             for(var j = 0 ; j<Size ; j++){
-                var MatA = document.getElementById("Matrix"+i+j).value;
+                MatA[i].push(document.getElementById("Matrix"+i+j).value);
             }
-            var MatB = document.getElementById("Matrixans"+i+j).value;
+            MatB[i].push(document.getElementById("Matrixans"+i+j).value);
         }
         var ans = Cal(MatA,MatB);
         console.log(ans);
