@@ -40,7 +40,7 @@ export default function Bisection(){
             count++;
         }while(Error>0.000001&&count!==100);
         console.log(xm);
-        return "Xm = "+xm;
+        return "Xm = "+xm.toFixed(5);
     }
     function getValue (){
         var Xl = document.getElementById("xl").value;
@@ -76,9 +76,9 @@ export default function Bisection(){
                 <button onClick={getValue}>Calculate</button>
             </div>
             </div>
-            <div id="ShowXM" className="ShowXM" style={{color: 'black'}}></div>
+            <div id="ShowXM" className="ShowXM" style={{color: 'black',paddingLeft:'750px',paddingTop:'30px'}}></div>
             <div className="chartcontrainer">
-            <div id = "showchart" className = 'chart' style={{paddingLeft:'630px' , paddingTop:'30px'}}>
+            <div id = "showchart" className = 'chart' style={{paddingLeft:'550px' , paddingTop:'30px'}}>
                 <ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
             </div>
             </div>

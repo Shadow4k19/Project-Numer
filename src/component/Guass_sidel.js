@@ -8,19 +8,23 @@ export default function Gauss_seidel(){
         var MatString = "";
         for(var i =  0; i<Size ; i++){
             for(var j = 0 ; j<Size ; j++){
-                MatString +=" <input id = 'Matrix'"+i+j+" className = 'inputmat' placeholder=' ' type='number' style='width: '40px''></input>"
+                MatString +=" <input id = 'Matrix'"+i+j+" className = 'inputmat' type='number' style='width: 40px'></input>"
             }
-            MatString +=" b"+i+""+' '+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' placeholder=' ' type='number' style='width: '40px''></input><br>";
+            MatString +=" b"+i+""+' '+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' type='number' style='width: 40px'></input><br>";
         }
         document.getElementById("Matrix").innerHTML = MatString;
     }
     function getmat2(){
         var Size = document.getElementById("Matnum").value;
+        var MatA = [];
+        var MatB = [];
         for(var i = 0 ; i<Size ; i++){
+            MatA.push([]);
+            MatB.push([]);
             for(var j = 0 ; j<Size ; j++){
-                var MatA = document.getElementById("Matrix"+i+j).value;
+                MatA[i].push(document.getElementById("Matrix"+i+j).value);
             }
-            var MatB = document.getElementById("Matrixans"+i+j).value;
+            MatB[i].push(document.getElementById("Matrixans"+i+j).value);
         }
         var ans = Cal(MatA,MatB);
         console.log(ans);
@@ -28,8 +32,8 @@ export default function Gauss_seidel(){
     }
 
     function Cal(a,b){
-        var A = parseInt(a);
-        var B = parseInt(b);
+        var A = a;
+        var B = b;
         var x = [];
         var bchange = b;
         var deta = math.det(a)

@@ -25,7 +25,7 @@ export default function Onepoint(){
             xold = xnew;
         }while(Error>0.0000001&&i!==50);
         console.log(xnew);
-        return "X = "+xnew;
+        return "X = "+xnew.toFixed(5);
     }
     function getValue (){
         var X = document.getElementById("x").value;
@@ -54,8 +54,8 @@ export default function Onepoint(){
                 <button onClick={getValue}>Calculate</button>
             </div>
             </div>
-            <div id="ShowAns" className="ShowXM" style={{color: 'black'}}></div>
-            <div id = "showchart" style={{paddingLeft:'650px' , paddingTop:'30px'}}>
+            <div id="ShowAns" className="ShowXM" style={{color: 'black',paddingLeft:'750px',paddingTop:'30px'}}></div>
+            <div id = "showchart" style={{paddingLeft:'550px' , paddingTop:'30px'}}>
                 <ChartOne data = {{x:Xone,loop:loopone}}/>
             </div>
         </div>

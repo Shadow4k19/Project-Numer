@@ -39,7 +39,7 @@ export default function Falseposition(){
             count++;
         }while(Error>0.000001&&count!== 50 );
         console.log(xm);
-        return "Xm = "+xm;
+        return "Xm = "+xm.toFixed(5);
     }
     function getValue (){
         var Xl = document.getElementById("xl").value;
@@ -75,8 +75,8 @@ export default function Falseposition(){
                 <button onClick={getValue}>Calculate</button>
             </div>
             </div>
-            <div id="ShowXM" className="ShowXM" style={{color: 'black'}}></div>
-            <div id = "showchart" style={{paddingLeft:'630px' , paddingTop:'30px'}}>
+            <div id="ShowXM" className="ShowXM" style={{color: 'black',paddingLeft:'750px',paddingTop:'30px'}}></div>
+            <div id = "showchart" style={{paddingLeft:'550px' , paddingTop:'30px'}}>
                 <ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
             </div>
         </div>
