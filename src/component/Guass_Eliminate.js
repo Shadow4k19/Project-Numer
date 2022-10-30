@@ -9,7 +9,7 @@ export default function Guass_Elimination(){
             for(var j = 0 ; j<Size ; j++){
                 MatString +=" <input id = 'Matrix'"+i+j+" className = 'inputmat' type='number' style='width: 40px'></input>"
             }
-            MatString +=" b"+i+' '+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' type='number' style='width: 40px'></input><br>";
+            MatString +=" b"+i+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' type='number' style='width: 40px'></input><br>";
         }
         document.getElementById("Matrix").innerHTML = MatString;
     }

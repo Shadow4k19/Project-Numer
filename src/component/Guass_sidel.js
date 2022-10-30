@@ -8,10 +8,11 @@ export default function Gauss_seidel(){
         var MatString = "";
         for(var i =  0; i<Size ; i++){
             for(var j = 0 ; j<Size ; j++){
-                MatString +=" <input id = 'Matrix'"+i+j+" className = 'inputmat' type='number' style='width: 40px'></input>"
+                MatString +=" <input id = 'Matrix"+i+j+"' className = 'inputmat' placeholder=' ' type='number' style = 'width: 40px'></input>"
             }
-            MatString +=" b"+i+""+' '+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' type='number' style='width: 40px'></input><br>";
+            MatString +=" | <input id = 'Matrixans"+i+j+"' className = 'inputmatans' placeholder=' ' type='number' style = 'width: 40px'></input><br>";
         }
+        console.log(MatString);
         document.getElementById("Matrix").innerHTML = MatString;
     }
     function getmat2(){
@@ -22,9 +23,13 @@ export default function Gauss_seidel(){
             MatA.push([]);
             MatB.push([]);
             for(var j = 0 ; j<Size ; j++){
-                MatA[i].push(document.getElementById("Matrix"+i+j).value);
+                MatA[i].push(document.getElementById('Matrix'+i+j));
+                var MatX = document.getElementById('Matrix'+i+j);
+                console.log(MatX);
             }
-            MatB[i].push(document.getElementById("Matrixans"+i+j).value);
+            MatB[i].push(document.getElementById("Matrixans"+i+j));
+            MatX = document.getElementById('Matrixans'+i+j);
+            console.log(MatX);
         }
         var ans = Cal(MatA,MatB);
         console.log(ans);
@@ -33,14 +38,16 @@ export default function Gauss_seidel(){
 
     function Cal(a,b){
         var A = a;
+        console.log(A);
         var B = b;
-        var x = [];
+        console.log(B);
+        var x = [[]];
         var bchange = b;
         var deta = math.det(a)
         function setArray(a,i)
             {
                 for(var j = 0 ; j < B.length ; j++)
-                A[j][i] = B[j]
+                A[j][i] = B[j][i]
                 return a
             }
             for(var i = 0 ; i < A.length ; i++)

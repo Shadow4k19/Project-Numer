@@ -8,6 +8,7 @@ import Falseposition from './component/Falseposition';
 import Onepoint from './component/Onepoint';
 import QandA from './component/Q&A';
 import Newton from './component/Newton'
+import Secant from './component/Secant';
 import ChamerRule from './component/Chamer_Rule';
 import Guass_Elimination from './component/Guass_Eliminate';
 import Jacobi from './component/Jacobi';
@@ -29,7 +30,7 @@ function App() {
         <Route path='/NewtonRaphson' element = {<Newton />}></Route>
         <Route path='/cramerrule' element = {<ChamerRule />}></Route>
         <Route path='/Taylorseries' element = {<Default />}></Route>
-        <Route path='/Secant' element = {<Default />}></Route>
+        <Route path='/Secant' element = {<Secant />}></Route>
         <Route path='/gausselimination' element = {<Guass_Elimination />}></Route>
         <Route path='/guassjordan' element = {<Default />}></Route>
         <Route path='/ludecompositon' element = {<Default />}></Route>

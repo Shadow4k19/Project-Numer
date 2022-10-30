@@ -1,6 +1,9 @@
 import React from "react";
 import { Parser } from "expr-eval";
-const math = require('mathjs');
+import ChartBI from "./ChartBi";
+var xlbi = [];
+var xrbi = [];
+var loopbi = [];
 
 export default function Secant(){
     function BisectionFuction(X0,X1,Function){
@@ -65,7 +68,7 @@ export default function Secant(){
             <div id="ShowXM" className="ShowXM" style={{color: 'black',paddingLeft:'750px',paddingTop:'30px'}}></div>
             <div className="chartcontrainer">
             <div id = "showchart" className = 'chart' style={{paddingLeft:'550px' , paddingTop:'30px'}}>
-                //<ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
+                <ChartBI data = {{ xl:xlbi , xr:xrbi ,loop:loopbi}}/>
             </div>
             </div>
         </div>
