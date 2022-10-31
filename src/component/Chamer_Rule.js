@@ -21,16 +21,14 @@ export default function ChamerRule(){
         var MatB = [];
         for(var i = 0 ; i<Size ; i++){
             MatA.push([]);
-            MatB.push([]);
             for(var j = 0 ; j<Size ; j++){
-                MatA[i].push(document.getElementById('Matrix'+i+j));
-                var MatX = document.getElementById('Matrix'+i+j);
-                console.log(MatX);
+                MatA[i].push(document.getElementById("Matrix"+i+j).value);
+                console.log(MatA);
             }
-            MatB[i].push(document.getElementById("Matrixans"+i+j));
-            MatX = document.getElementById('Matrixans'+i+j);
-            console.log(MatX);
+            MatB[i].push(document.getElementById("Matrixans"+i+j).value);
+            console.log(MatB);
         }
+        console.log(MatA+" "+MatB);
         var ans = Cal(MatA,MatB);
         console.log(ans);
         document.getElementById("Showans").innerHTML = ans;
@@ -38,22 +36,21 @@ export default function ChamerRule(){
 
     function Cal(a,b){
         var A = a;
-        console.log(A);
+        //console.log(A);
         var B = b;
-        console.log(B);
-        var x = [[]];
-        var bchange = b;
+        //console.log(B);
+        var x = [];
         var deta = math.det(a)
-        function setArray(a,i)
+        function setArray(A,i)
             {
                 for(var j = 0 ; j < B.length ; j++)
-                A[j][i] = B[j][i]
-                return a
+                A[j][i] = B[j]
+                return A
             }
             for(var i = 0 ; i < A.length ; i++)
             {
-                A[i] = math.det(setArray(A,i))/deta
-                b = bchange;
+                x[i] = math.det(setArray(A,i))/deta
+                B = b;
             }
         return "Y = "+x;
     }
