@@ -1,5 +1,4 @@
 import React from "react";
-import { Parser } from "expr-eval";
 import ChartOne from "./ChartOne";
 const math = require('mathjs');
 
@@ -8,9 +7,8 @@ var loopone = [];
 
 export default function Newton(){
     function Newtonfunction(X,Function){
-        const parser = new Parser();
         const func = (x) =>{
-            let expr = parser.parse(Function);
+            let expr = math.parse(Function);
             return expr.evaluate({x: (x)});
         }
         const funcprime = (x) =>{
@@ -29,7 +27,6 @@ export default function Newton(){
             Error = Math.abs((dx)/x)*100;
             loopone.push(i++);
         }while(Error>0.0000001);
-        //console.log(x);
         return "X = "+x.toFixed(5);
     }
     function getValue (){

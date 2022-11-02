@@ -1,15 +1,14 @@
 import React from "react";
-import { Parser } from "expr-eval";
 import ChartOne from "./ChartOne";
+const math = require('mathjs');
 
 var Xone = [];
 var loopone = [];
 
 export default function Onepoint(){
     function Onepoint(X,Function){
-        const parser = new Parser();
         const func = (x) =>{
-            let expr = parser.parse(Function);
+            let expr = math.parse(Function);
             return expr.evaluate({x: (x)});
         }
         var xold = X;

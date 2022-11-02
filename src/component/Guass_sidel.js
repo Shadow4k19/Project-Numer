@@ -1,6 +1,5 @@
 import React from "react";
 import './Matrix.css'
-const math = require('mathjs');
 
 export default function Gauss_seidel(){
     function Getmat(){
@@ -12,7 +11,6 @@ export default function Gauss_seidel(){
             }
             MatString +=" | <input id = 'Matrixans"+i+j+"' className = 'inputmatans' placeholder=' ' type='number' style = 'width: 40px'></input><br>";
         }
-        console.log(MatString);
         document.getElementById("Matrix").innerHTML = MatString;
     }
     function getmat2(){
@@ -21,41 +19,56 @@ export default function Gauss_seidel(){
         var MatB = [];
         for(var i = 0 ; i<Size ; i++){
             MatA.push([]);
-            MatB.push([]);
             for(var j = 0 ; j<Size ; j++){
-                MatA[i].push(document.getElementById('Matrix'+i+j));
-                var MatX = document.getElementById('Matrix'+i+j);
-                console.log(MatX);
+                MatA[i].push(document.getElementById('Matrix'+i+j).value);
             }
-            MatB[i].push(document.getElementById("Matrixans"+i+j));
-            MatX = document.getElementById('Matrixans'+i+j);
-            console.log(MatX);
+            MatB.push(document.getElementById("Matrixans"+i+j).value);
         }
-        var ans = Cal(MatA,MatB);
+        var ans = Cal(MatA,MatB,Size);
         console.log(ans);
         document.getElementById("Showans").innerHTML = ans;
     }
 
-    function Cal(a,b){
-        var A = a;
-        console.log(A);
-        var B = b;
-        console.log(B);
-        var x = [[]];
-        var bchange = b;
-        var deta = math.det(a)
-        function setArray(a,i)
-            {
-                for(var j = 0 ; j < B.length ; j++)
-                A[j][i] = B[j][i]
-                return a
+    function Cal(a,b,size){
+        var xnew = [];
+        var xold = [];
+        var count = 0;
+        var n = 0;
+        pushArray(xnew);
+        pushArray(xold);
+        function pushArray(a){
+            for(var i = 0 ; i < size ; i++){
+                a.push(0);
             }
-            for(var i = 0 ; i < A.length ; i++)
+            return a;
+        }
+        do
+        {
+            count = 0;
+            n++;
+            for(var i = 0 ; i < a.length ; i++)
             {
-                A[i] = math.det(setArray(A,i))/deta
-                b = bchange;
+                xnew[i] = b[i];
+                console.log(xnew);
+                for(var j = 0 ; j < a.length ; j++)
+                {
+                    if(i !== j)
+                    {
+                        xnew[i] -= (a[i][j]*xold[j]);
+                    }
+                }
+                xnew[i]/=a[i][i]
+                console.log(xnew);
+                if(Math.abs((xnew[i]-xold[i])/xnew[i])<=0.0001)
+                {
+                    count++;
+                }
+                xold[i] = xnew[i];
             }
-        return "Y = "+x;
+          
+        }
+        while(count !== xnew.length||n!==100);
+        return xnew;
     }
     return(
         <div><h1 style={{color:'black',paddingLeft:'685px',paddingTop:'75px'}}>Gauss_seidel</h1>

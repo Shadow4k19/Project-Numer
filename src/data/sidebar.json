@@ -35,7 +35,7 @@
             ]
     },
     {
-        "title": "Linear Equation",
+        "title": "Linear Algebra",
         "icon": "bi-2-circle",
         "childrens": [
             {
@@ -69,6 +69,36 @@
             {
                "title": "Conjugate Gradient",
                "path": "/conjugategradient"
+            }
+        ]
+    },
+    {
+        "title": "Iterporation",
+        "icon": "bi-3-circle",
+        "childrens": [
+            {
+                "title": "Newton Devide",
+                "path": "/newtondevide"
+            },
+            {
+                "title": "Largrange",
+                "path": "/largrange"
+            },
+            {
+                "title": "Spline",
+                "path": "/spline"
+            },
+            {
+                "title": "I Don't know",
+                "path": "/"
+            },
+            {
+                "title": "I Don't know",
+                "path": "/"
+            },
+            {
+                "title": "I Don't know",
+                "path": "/"
             }
         ]
     },

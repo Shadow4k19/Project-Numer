@@ -12,7 +12,6 @@ export default function ChamerRule(){
             }
             MatString +=" | <input id = 'Matrixans"+i+j+"' className = 'inputmatans' placeholder=' ' type='number' style = 'width: 40px'></input><br>";
         }
-        console.log(MatString);
         document.getElementById("Matrix").innerHTML = MatString;
     }
     function getmat2(){
@@ -23,36 +22,50 @@ export default function ChamerRule(){
             MatA.push([]);
             for(var j = 0 ; j<Size ; j++){
                 MatA[i].push(document.getElementById("Matrix"+i+j).value);
-                console.log(MatA);
+                //console.log(MatA);
             }
-            MatB[i].push(document.getElementById("Matrixans"+i+j).value);
-            console.log(MatB);
+            MatB.push(document.getElementById("Matrixans"+i+j).value);
+            //console.log(MatB);
         }
         console.log(MatA+" "+MatB);
-        var ans = Cal(MatA,MatB);
+        var ans = Cal(MatA,MatB,Size);
         console.log(ans);
         document.getElementById("Showans").innerHTML = ans;
     }
 
-    function Cal(a,b){
-        var A = a;
-        //console.log(A);
-        var B = b;
-        //console.log(B);
+    function Cal(a,b,size){
+        var A = pushArray(a);
         var x = [];
-        var deta = math.det(a)
+        var deta = math.det(A)
+        function pushArray(a){
+            var A = [];
+            for(var i = 0 ; i < size ; i++){
+                A.push([]);
+                for(var j = 0 ; j < size ; j++){
+                    A[i].push(a[i][j]);
+                    //console.log(A);
+                }
+            }
+            return A;
+        }
         function setArray(A,i)
             {
-                for(var j = 0 ; j < B.length ; j++)
-                A[j][i] = B[j]
+                for(var j = 0 ; j < A.length ; j++)
+                A[j][i] = b[j]
+                console.log(A);
                 return A
             }
-            for(var i = 0 ; i < A.length ; i++)
-            {
-                x[i] = math.det(setArray(A,i))/deta
-                B = b;
-            }
-        return "Y = "+x;
+        for(var i = 0 ; i < a.length ; i++)
+        {
+            console.log("set = "+setArray(a,i));
+            x[i] = math.det(setArray(a,i))/deta
+            console.log("deta = "+deta);
+            //a = [];
+            a = pushArray(A);
+            //console.log(a);
+            console.log("x = "+x);
+        }
+        return x;
     }
     return(
         <div><h1 style={{color:'black',paddingLeft:'685px',paddingTop:'75px'}}>Chamer_Rule</h1>
@@ -70,7 +83,9 @@ export default function ChamerRule(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
+        <div style={{paddingLeft:'130px',paddingTop:'20px'}}>
         <div id = 'Showans'></div>
+        </div>
         </div>
         </div>
     )

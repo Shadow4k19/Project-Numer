@@ -1,53 +1,59 @@
 import React from "react";
-const math = require('mathjs');
 
 export default function Guass_Elimination(){
     function Getmat(){
         var Size = document.getElementById("Matnum").value;
         var MatString = "";
         for(var i =  0; i<Size ; i++){
-            for(var j = 0 ; j<Size ; j++){
-                MatString +=" <input id = 'Matrix'"+i+j+" className = 'inputmat' type='number' style='width: 40px'></input>"
+            for(var j = 0 ; j<=Size ; j++){
+                MatString +=" <input id = 'Matrix"+i+j+"' className = 'inputmat' type='number' style='width: 40px'></input>"
             }
-            MatString +=" b"+i+" <input id = 'Matrixans'"+i+j+" className = 'inputmatans' type='number' style='width: 40px'></input><br>";
+            MatString +="<br>";
         }
+        console.log(MatString);
         document.getElementById("Matrix").innerHTML = MatString;
     }
     function getmat2(){
         var Size = document.getElementById("Matnum").value;
         var MatA = [];
-        var MatB = [];
         for(var i = 0 ; i<Size ; i++){
             MatA.push([]);
-            MatB.push([]);
-            for(var j = 0 ; j<Size ; j++){
+            for(var j = 0 ; j<=Size ; j++){
                 MatA[i].push(document.getElementById("Matrix"+i+j).value);
             }
-            MatB[i].push(document.getElementById("Matrixans"+i+j).value);
         }
-        var ans = Cal(MatA,MatB);
+        var ans = Cal(MatA,Size);
         console.log(ans);
         document.getElementById("Showans").innerHTML = ans;
     }
 
-    function Cal(a,b){
-        var A = a;
-        var B = b;
-        var x = [];
-        var bchange = b;
-        var deta = math.det(a)
-        function setArray(a,i)
+    function Cal(a,size){
+        var x = 0;
+        var y = new Array(size);
+        var n = a.length-1;
+        for(var i = 0 ; i <= a.length ; i++)
+        {
+          for(var j = i+1 ; j < a.length ; j++ )
+          {
+            x = a[j][i] / a[i][i]
+            for(var k = 0 ; k <= a.length ; k++)
             {
-                for(var j = 0 ; j < B.length ; j++)
-                A[j][i] = B[j]
-                return a
+              a[j][k] = a[j][k] - (x * a[i][k])
+              console.log(a)
             }
-            for(var i = 0 ; i < A.length ; i++)
-            {
-                A[i] = math.det(setArray(A,i))/deta
-                b = bchange;
+          }
+        }
+        y[n]=a[n][n+1]/a[n][n]
+        for(var l = n-1 ; l >= 0 ; l-- )
+        {
+          let sum = 0
+            for(j = l+1 ; j <= n ; j++)
+            {  
+                sum += (a[l][j]*y[j])
             }
-        return "Y = "+x;
+            y[l]=(a[l][n+1]-sum)/a[l][l];
+        }
+        return y;
     }
     return(
         <div><h1 style={{color:'black',paddingLeft:'625px',paddingTop:'75px'}}>Guass_Elimination</h1>
@@ -65,7 +71,7 @@ export default function Guass_Elimination(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div id = 'Showans'></div>
+        <div id = 'Showans' style={{paddingLeft:'150px',paddingTop:'20px'}}></div>
         </div>
         </div>
     )

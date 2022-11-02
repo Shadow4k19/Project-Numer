@@ -1,7 +1,7 @@
 import React from "react";
 import './Falseposition.css';
-import { Parser } from "expr-eval";
 import ChartBI from './ChartBi';
+const math = require('mathjs');
 
 var xlbi = [];
 var xrbi = [];
@@ -10,9 +10,8 @@ var loopbi = [];
 
 export default function Falseposition(){
     function FalsePositionFuction(Xl,Xr,Function){
-        const parser = new Parser();
         const func = (x) =>{
-            let expr = parser.parse(Function);
+            let expr = math.parse(Function);
             return expr.evaluate({x: (x)});
         }
         var xl = Xl;
