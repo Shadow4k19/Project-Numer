@@ -53,6 +53,9 @@ export default function Guass_Elimination(){
             }
             y[l]=(a[l][n+1]-sum)/a[l][l];
         }
+        for(i = 0 ; i < size  ;i++){
+            y[i] = y[i].toFixed(3);
+        }
         return y;
     }
     return(
@@ -71,7 +74,7 @@ export default function Guass_Elimination(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div id = 'Showans' style={{paddingLeft:'150px',paddingTop:'20px'}}></div>
+        <div id = 'Showans' style={{paddingLeft:'95px',paddingTop:'20px'}}></div>
         </div>
         </div>
     )

@@ -37,6 +37,7 @@ export default function Conjugate_gradient(){
     }
 
     function Cal(a,b){
+        //ยังไม่ได้ทำCalของThis part Ehe!!
         var A = a;
         console.log(A);
         var B = b;

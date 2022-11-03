@@ -71,6 +71,9 @@ export default function Jacobi(){
           
         }
         while(count !== xnew.length||n!==100);
+        for(i = 0 ; i < size  ;i++){
+            xnew[i] = xnew[i].toFixed(3);
+        }
         return xnew;
     }
     return(
@@ -89,7 +92,7 @@ export default function Jacobi(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div id = 'Showans'></div>
+        <div id = 'Showans' style={{paddingLeft:'85px',paddingTop:'20px'}}></div>
         </div>
         </div>
     )

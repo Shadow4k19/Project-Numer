@@ -65,6 +65,9 @@ export default function ChamerRule(){
             //console.log(a);
             console.log("x = "+x);
         }
+        for(i = 0 ; i < size  ;i++){
+            x[i] = x[i].toFixed(3);
+        }
         return x;
     }
     return(
@@ -83,7 +86,7 @@ export default function ChamerRule(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div style={{paddingLeft:'130px',paddingTop:'20px'}}>
+        <div style={{paddingLeft:'100px',paddingTop:'20px'}}>
         <div id = 'Showans'></div>
         </div>
         </div>

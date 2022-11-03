@@ -7,20 +7,23 @@ var loopone = [];
 
 export default function Newton(){
     function Newtonfunction(X,Function){
-        const func = (x) =>{
+        function func (x){
             let expr = math.parse(Function);
             return expr.evaluate({x: (x)});
         }
-        const funcprime = (x) =>{
+        function funcprime(x){
             const exprfxprime  = math.derivative(math.parse(Function), 'x')
             return exprfxprime.evaluate({x: x});
         }
         var x = parseFloat(X);
         var dx = 0;
+        var fun = 0 , funprime = 0;
         var Error = 0;
         var i = 0;
         do{
-            dx = ((-1*func(x))/(funcprime(x)));
+            fun = func(x);
+            funprime = funcprime(x);
+            dx = ((-1*fun/funprime));
             x += dx;
             console.log(dx);
             Xone.push(x);
