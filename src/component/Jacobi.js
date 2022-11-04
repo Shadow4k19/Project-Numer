@@ -18,18 +18,59 @@ export default function Jacobi(){
         var Size = document.getElementById("Matnum").value;
         var MatA = [];
         var MatB = [];
+        var MatBfp = [];
         for(var i = 0 ; i<Size ; i++){
             MatA.push([]);
+            MatBfp.push([]);
             for(var j = 0 ; j<Size ; j++){
-                MatA[i].push(document.getElementById("Matrix"+i+j).value);
+                MatA[i].push(document.getElementById('Matrix'+i+j).value);
             }
             MatB.push(document.getElementById("Matrixans"+i+j).value);
+            MatBfp[i].push(document.getElementById("Matrixans"+i+j).value);
         }
         var ans = Cal(MatA,MatB,Size);
         console.log(ans);
-        document.getElementById("Showans").innerHTML = ans+"\n";
+        var matA = pushArray(MatA,Size);
+        console.log(matA);
+        var Proofans = Proof(matA,MatBfp);
+        var str = "";
+        var str1 = "";
+        var str2 = "";
+        var str3 = "";
+        for(i = 0 ; i < Size ; i++){
+            str += "X["+i+"] = "+ans[i]+"<br>"
+            str1 += matA[i]+"<br>";
+            str2 += ans[i]+"<br>";
+            str3 += Proofans[i]+"<br>";
+        }
+        document.getElementById("Showans").innerHTML = str;
+        document.getElementById("ShowProof").innerHTML = str1+"x"+str2+"="+str3;
     }
-
+    function pushArray(a,size){
+        var A = [];
+        console.log(a);
+        for(var i = 0 ; i < size ; i++){
+            A.push([]);
+            for(var j = 0 ; j < size ; j++){
+                A[i].push(a[i][j]);
+                //console.log(A);
+            }
+        }
+        return A;
+    }
+    function Proof(a,b){
+        var mat = [];
+        for(var i = 0 ; i < b.length ; i++){
+            mat.push([]);
+            for(var j = 0 ; j < b[0].length ; j++){
+                for(var k = 0 ; k < b.length ; k++){
+                    mat[i][j] += a[i][k] * b[k][j];
+                    //console.log(mat);
+                }
+            }
+        }
+        return mat;
+    }
     function Cal(a,b,size){
         var xnew = [];
         var xold = [];
@@ -58,7 +99,7 @@ export default function Jacobi(){
                     }
                 }
                 xnew[i]/=a[i][i]
-                console.log(xnew);
+                //console.log(xnew);
                 if(Math.abs((xnew[i]-xold[i])/xnew[i])<=0.0001)
                 {
                     count++;
@@ -93,6 +134,9 @@ export default function Jacobi(){
             <button onClick={getmat2}>Calculate</button>
         </div>
         <div id = 'Showans' style={{paddingLeft:'85px',paddingTop:'20px'}}></div>
+        <div>
+        <div id = 'ShowProof'style={{color:'black',paddingRight:'100px'}}></div>
+        </div>
         </div>
         </div>
     )

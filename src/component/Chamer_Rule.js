@@ -18,21 +18,62 @@ export default function ChamerRule(){
         var Size = document.getElementById("Matnum").value;
         var MatA = [];
         var MatB = [];
+        var MatBfp = []
         for(var i = 0 ; i<Size ; i++){
             MatA.push([]);
+            MatBfp.push([]);
             for(var j = 0 ; j<Size ; j++){
                 MatA[i].push(document.getElementById("Matrix"+i+j).value);
                 //console.log(MatA);
             }
             MatB.push(document.getElementById("Matrixans"+i+j).value);
+            MatBfp[i].push(document.getElementById("Matrixans"+i+j).value);
             //console.log(MatB);
         }
-        console.log(MatA+" "+MatB);
+        var matA = pushArray(MatA,Size);
+        //console.log(MatA+" "+MatB);
         var ans = Cal(MatA,MatB,Size);
+        var Proofans = Proof(matA,MatBfp);
         console.log(ans);
-        document.getElementById("Showans").innerHTML = ans;
+        var str = "";
+        var str1 = "";
+        var str2 = "";
+        var str3 = "";
+        console.log(matA);
+        for(i = 0 ; i < Size ; i++){
+            str += "X["+i+"] = "+ans[i]+"<br>";
+            str1 += matA[i]+"<br>";
+            str2 += ans[i]+"<br>";
+            str3 += Proofans[i]+"<br>";
+        }
+        //console.log("A = "+MatA);
+        document.getElementById("Showans").innerHTML = str;
+        document.getElementById("ShowProof").innerHTML = str1+"x"+str2+"="+str3;
     }
-
+    function pushArray(a,size){
+        var A = [];
+        for(var i = 0 ; i < size ; i++){
+            A.push([]);
+            for(var j = 0 ; j < size ; j++){
+                A[i].push(a[i][j]);
+                console.log(A);
+            }
+        }
+        return A;
+    }
+    function Proof(a,b){
+        var mat = [];
+        for(var i = 0 ; i < b.length ; i++){
+            mat.push([]);
+            for(var j = 0 ; j < b[0].length ; j++){
+                for(var k = 0 ; k < b.length ; k++){
+                    mat[i][j] += a[i][k] * b[k][j];
+                    console.log(mat);
+                }
+            }
+        }
+        return mat;
+    }
     function Cal(a,b,size){
         var A = pushArray(a);
         var x = [];
@@ -43,7 +84,6 @@ export default function ChamerRule(){
                 A.push([]);
                 for(var j = 0 ; j < size ; j++){
                     A[i].push(a[i][j]);
-                    //console.log(A);
                 }
             }
             return A;
@@ -52,18 +92,18 @@ export default function ChamerRule(){
             {
                 for(var j = 0 ; j < A.length ; j++)
                 A[j][i] = b[j]
-                console.log(A);
+                //console.log(A);
                 return A
             }
         for(var i = 0 ; i < a.length ; i++)
         {
-            console.log("set = "+setArray(a,i));
+            //console.log("set = "+setArray(a,i));
             x[i] = math.det(setArray(a,i))/deta
-            console.log("deta = "+deta);
+            //console.log("deta = "+deta);
             //a = [];
             a = pushArray(A);
             //console.log(a);
-            console.log("x = "+x);
+            //console.log("x = "+x);
         }
         for(i = 0 ; i < size  ;i++){
             x[i] = x[i].toFixed(3);
@@ -88,6 +128,9 @@ export default function ChamerRule(){
         </div>
         <div style={{paddingLeft:'100px',paddingTop:'20px'}}>
         <div id = 'Showans'></div>
+        </div>
+        <div>
+        <div id = 'ShowProof'style={{paddingRight:'100px'}}></div>
         </div>
         </div>
         </div>

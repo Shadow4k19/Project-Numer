@@ -24,7 +24,11 @@ export default function Guass_Elimination(){
         }
         var ans = Cal(MatA,Size);
         console.log(ans);
-        document.getElementById("Showans").innerHTML = ans;
+        var str = "";
+        for(i = 0 ; i < Size ; i++){
+            str += "X["+i+"] = "+ans[i]+"<br>"
+        }
+        document.getElementById("Showans").innerHTML = str;
     }
 
     function Cal(a,size){
@@ -75,6 +79,9 @@ export default function Guass_Elimination(){
             <button onClick={getmat2}>Calculate</button>
         </div>
         <div id = 'Showans' style={{paddingLeft:'95px',paddingTop:'20px'}}></div>
+        <div>
+        <div id = 'ShowProof'style={{color:'black',paddingRight:'100px'}}></div>
+        </div>
         </div>
         </div>
     )

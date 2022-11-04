@@ -22,7 +22,7 @@ body{
   width: 17%;
   flex-shrink: 0;
   background-color: rgba(22, 22, 22, 1);
-  height: 100%;
+  height: auto;
   overflow: auto;
 }
 
