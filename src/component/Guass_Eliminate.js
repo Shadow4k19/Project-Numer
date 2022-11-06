@@ -10,7 +10,7 @@ export default function Guass_Elimination(){
             }
             MatString +="<br>";
         }
-        console.log(MatString);
+        //console.log(MatString);
         document.getElementById("Matrix").innerHTML = MatString;
     }
     function getmat2(){
@@ -22,13 +22,58 @@ export default function Guass_Elimination(){
                 MatA[i].push(document.getElementById("Matrix"+i+j).value);
             }
         }
+        var MatAfp = copyMatrix(MatA);
+        console.log(MatAfp);
+        var MatBfp = copyMatrixb(MatA,Size);
+        console.log(MatBfp);
         var ans = Cal(MatA,Size);
+        var ansproof = Proof(MatAfp,MatBfp);
         console.log(ans);
         var str = "";
+        var str1 = "";
         for(i = 0 ; i < Size ; i++){
-            str += "X["+i+"] = "+ans[i]+"<br>"
+            str += "X["+i+"] = "+ans[i]+"<br>";
+            str1 += MatAfp[i]+" x "+ans[i]+" = "+ ansproof[i]+"<br>";
         }
         document.getElementById("Showans").innerHTML = str;
+        document.getElementById("ShowProof").innerHTML = str1;
+    }
+    function copyMatrix(a){
+        var A = [];
+        for(var i = 0 ; i < a.length ; i++){
+            A.push([]);
+            for(var j = 0 ; j < a.length ; j++){
+                A[i][j] = a[i][j];
+            }
+        }
+        return A;
+    }
+    function copyMatrixb(b,size){
+        var B = [];
+        var n = b.length;
+        //console.log(b[0][n]);
+        for(var i = 0 ; i < size ; i++){
+            B.push([]);
+            B[i].push(b[i][n]);
+            //console.log(B[i][n]);
+        }
+        return B;
+    }
+    function Proof(a,b){
+        var mat = [];
+        var sum = 0;
+        for(var i = 0 ; i < b.length ; i++){
+            mat.push([]);
+            sum = 0;
+            for(var j = 0 ; j < b[i].length ; j++){
+                for(var k = 0 ; k < b.length ; k++){
+                    sum += a[i][k] * b[k][j];
+                    console.log(mat);
+                }
+                mat[i][j] = sum;
+            }
+        }
+        return mat;
     }
 
     function Cal(a,size){
@@ -43,7 +88,7 @@ export default function Guass_Elimination(){
             for(var k = 0 ; k <= a.length ; k++)
             {
               a[j][k] = a[j][k] - (x * a[i][k])
-              console.log(a)
+              //console.log(a)
             }
           }
         }
@@ -78,9 +123,9 @@ export default function Guass_Elimination(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div id = 'Showans' style={{paddingLeft:'95px',paddingTop:'20px'}}></div>
+        <div id = 'Showans' style={{paddingLeft:'145px',paddingTop:'20px'}}></div>
         <div>
-        <div id = 'ShowProof'style={{color:'black',paddingRight:'100px'}}></div>
+        <div id = 'ShowProof'style={{color:'black',paddingLeft:'100px',paddingTop:'20px'}}></div>
         </div>
         </div>
         </div>

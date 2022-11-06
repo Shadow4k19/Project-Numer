@@ -35,16 +35,13 @@ export default function Jacobi(){
         var Proofans = Proof(matA,MatBfp);
         var str = "";
         var str1 = "";
-        var str2 = "";
-        var str3 = "";
         for(i = 0 ; i < Size ; i++){
-            str += "X["+i+"] = "+ans[i]+"<br>"
-            str1 += matA[i]+"<br>";
-            str2 += ans[i]+"<br>";
-            str3 += Proofans[i]+"<br>";
+            str += "X["+i+"] = "+ans[i]+"<br>";
+            str1 += matA[i]+" x "+ans[i]+" = "+ Proofans[i]+"<br>";
         }
+        //console.log("A = "+MatA);
         document.getElementById("Showans").innerHTML = str;
-        document.getElementById("ShowProof").innerHTML = str1+"x"+str2+"="+str3;
+        document.getElementById("ShowProof").innerHTML = str1;
     }
     function pushArray(a,size){
         var A = [];
@@ -62,11 +59,13 @@ export default function Jacobi(){
         var mat = [];
         for(var i = 0 ; i < b.length ; i++){
             mat.push([]);
-            for(var j = 0 ; j < b[0].length ; j++){
+            var sum = 0;
+            for(var j = 0 ; j < b[i].length ; j++){
                 for(var k = 0 ; k < b.length ; k++){
-                    mat[i][j] += a[i][k] * b[k][j];
+                    sum += a[i][k] * b[k][j];
                     //console.log(mat);
                 }
+                mat[i][j] = sum;
             }
         }
         return mat;
@@ -75,7 +74,7 @@ export default function Jacobi(){
         var xnew = [];
         var xold = [];
         var count = 0;
-        var n = 0;
+        //var n = 0;
         pushArray(xnew);
         pushArray(xold);
         function pushArray(a){
@@ -87,7 +86,6 @@ export default function Jacobi(){
         do
         {
             count = 0;
-            n++;
             for(var i = 0 ; i < a.length ; i++)
             {
                 xnew[i] = b[i];
@@ -111,7 +109,7 @@ export default function Jacobi(){
             }
           
         }
-        while(count !== xnew.length||n!==100);
+        while(count !== xnew.length);
         for(i = 0 ; i < size  ;i++){
             xnew[i] = xnew[i].toFixed(3);
         }
@@ -133,9 +131,9 @@ export default function Jacobi(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div id = 'Showans' style={{paddingLeft:'85px',paddingTop:'20px'}}></div>
+        <div id = 'Showans' style={{paddingLeft:'145px',paddingTop:'20px'}}></div>
         <div>
-        <div id = 'ShowProof'style={{color:'black',paddingRight:'100px'}}></div>
+        <div id = 'ShowProof'style={{color:'black',paddingLeft:'100px',paddingTop:'20px'}}></div>
         </div>
         </div>
         </div>
