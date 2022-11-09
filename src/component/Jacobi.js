@@ -32,7 +32,9 @@ export default function Jacobi(){
         console.log(ans);
         var matA = pushArray(MatA,Size);
         console.log(matA);
-        var Proofans = Proof(matA,MatBfp);
+        var ansfp = pushArrayans(ans);
+        console.log(ansfp);
+        var Proofans = Proof(matA,ansfp);
         var str = "";
         var str1 = "";
         for(i = 0 ; i < Size ; i++){
@@ -55,17 +57,27 @@ export default function Jacobi(){
         }
         return A;
     }
+    function pushArrayans(ans){
+        var Ans = [];
+        for(var i = 0 ; i < ans.length ; i++){
+            Ans.push([]);
+            Ans[i].push(ans[i]);
+        }
+        return Ans;
+    }
     function Proof(a,b){
+        //console.log(a+" "+b);
         var mat = [];
         for(var i = 0 ; i < b.length ; i++){
             mat.push([]);
             var sum = 0;
-            for(var j = 0 ; j < b[i].length ; j++){
+            for(var j = 0 ; j < b[0].length ; j++){
                 for(var k = 0 ; k < b.length ; k++){
                     sum += a[i][k] * b[k][j];
                     //console.log(mat);
                 }
                 mat[i][j] = sum;
+                mat[i][j] = mat[i][j].toFixed(2);
             }
         }
         return mat;

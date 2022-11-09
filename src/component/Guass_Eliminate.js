@@ -27,7 +27,8 @@ export default function Guass_Elimination(){
         var MatBfp = copyMatrixb(MatA,Size);
         console.log(MatBfp);
         var ans = Cal(MatA,Size);
-        var ansproof = Proof(MatAfp,MatBfp);
+        var ansfp = pushArrayans(ans);
+        var ansproof = Proof(MatAfp,ansfp);
         console.log(ans);
         var str = "";
         var str1 = "";
@@ -59,6 +60,14 @@ export default function Guass_Elimination(){
         }
         return B;
     }
+    function pushArrayans(ans){
+        var Ans = [];
+        for(var i = 0 ; i < ans.length ; i++){
+            Ans.push([]);
+            Ans[i].push(ans[i]);
+        }
+        return Ans;
+    }
     function Proof(a,b){
         var mat = [];
         var sum = 0;
@@ -71,6 +80,7 @@ export default function Guass_Elimination(){
                     console.log(mat);
                 }
                 mat[i][j] = sum;
+                mat[i][j] = mat[i][j].toFixed(2);
             }
         }
         return mat;

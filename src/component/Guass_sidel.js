@@ -30,7 +30,8 @@ export default function Gauss_seidel(){
         var ans = Cal(MatA,MatB,Size);
         console.log(ans);
         var matA = pushArray(MatA,Size);
-        var Proofans = Proof(matA,MatBfp);
+        var ansfp = pushArrayans(ans);
+        var Proofans = Proof(matA,ansfp);
         var str = "";
         var str1 = "";
         for(i = 0 ; i < Size ; i++){
@@ -52,9 +53,18 @@ export default function Gauss_seidel(){
         }
         return A;
     }
+    function pushArrayans(ans){
+        var Ans = [];
+        for(var i = 0 ; i < ans.length ; i++){
+            Ans.push([]);
+            Ans[i].push(ans[i]);
+        }
+        return Ans;
+    }
     function Proof(a,b){
+        console.log(a+b);
         var mat = [];
-        for(var i = 0 ; i < b.length ; i++){
+        for(var i = 0 ; i < a.length ; i++){
             mat.push([]);
             var sum = 0;
             for(var j = 0 ; j < b[i].length ; j++){
@@ -63,6 +73,7 @@ export default function Gauss_seidel(){
                     //console.log(mat);
                 }
                 mat[i][j] = sum;
+                mat[i][j] = mat[i][j].toFixed(2);
             }
         }
         return mat;
@@ -126,9 +137,9 @@ export default function Gauss_seidel(){
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
             <button onClick={getmat2}>Calculate</button>
         </div>
-        <div id = 'Showans' style={{paddingLeft:'85px',paddingTop:'20px'}}></div>
+        <div id = 'Showans' style={{paddingLeft:'145px',paddingTop:'20px'}}></div>
         <div>
-        <div id = 'ShowProof'style={{paddingRight:'100px'}}></div>
+        <div id = 'ShowProof'style={{paddingLeft:'100px'}}></div>
         </div>
         </div>
         </div>

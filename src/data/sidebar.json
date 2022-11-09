@@ -78,7 +78,7 @@
         "childrens": [
             {
                 "title": "Newton Devide",
-                "path": "/newtondevide"
+                "path": "/Default"
             },
             {
                 "title": "Largrange",
@@ -86,19 +86,19 @@
             },
             {
                 "title": "Spline",
-                "path": "/spline"
+                "path": "/Default"
             },
             {
                 "title": "I Don't know",
-                "path": "/"
+                "path": "/Default"
             },
             {
                 "title": "I Don't know",
-                "path": "/"
+                "path": "/Default"
             },
             {
                 "title": "I Don't know",
-                "path": "/"
+                "path": "/Default"
             }
         ]
     },

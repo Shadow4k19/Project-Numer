@@ -33,7 +33,8 @@ export default function ChamerRule(){
         var matA = pushArray(MatA,Size);
         console.log(MatA+" "+MatB);
         var ans = Cal(MatA,MatB,Size);
-        var Proofans = Proof(matA,MatBfp);
+        var ansfp = pushArrayans(ans);
+        var Proofans = Proof(matA,ansfp);
         console.log(ans);
         var str = "";
         var str1 = "";
@@ -61,17 +62,25 @@ export default function ChamerRule(){
         var sum = 0;
         for(var i = 0 ; i < a.length ; i++){
             mat.push([]);
-            //sum = 0;
+            sum = 0;
             for(var j = 0 ; j < b[0].length ; j++){
                 for(var k = 0 ; k < a[i].length ; k++){
                     sum += a[i][k] * b[k][j];
                     console.log(mat);
                 }
                 mat[i][j] = sum;
-                sum = 0;
+                mat[i][j] = mat[i][j].toFixed(2);
             }
         }
         return mat;
+    }
+    function pushArrayans(ans){
+        var Ans = [];
+        for(var i = 0 ; i < ans.length ; i++){
+            Ans.push([]);
+            Ans[i].push(ans[i]);
+        }
+        return Ans;
     }
     function Cal(a,b,size){
         var A = pushArray(a);
