@@ -8,13 +8,14 @@ import Falseposition from './component/Falseposition';
 import Onepoint from './component/Onepoint';
 import QandA from './component/Q&A';
 import Newton from './component/Newton'
-//import Secant from './component/Secant';
 import ChamerRule from './component/Chamer_Rule';
 import Guass_Elimination from './component/Guass_Eliminate';
 import Jacobi from './component/Jacobi';
 import Gauss_seidel from './component/Guass_sidel';
 import Conjugate_gradient from './component/Conjugate_gradient';
 import Lagarange from './component/Lagarange';
+import LinearRegression from './component/Linear_Regression';
+import PolynomialRegression from './component/Polynomial_Regression';
 import Default from './component/Default';
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
         <Route path='/gaussseidel' element = {<Gauss_seidel />}></Route>
         <Route path='/conjugategradient' element = {<Conjugate_gradient />}></Route>
         <Route path='/largrange' element = {<Lagarange />}></Route>
+        <Route path='linearregression' element = {<LinearRegression />}></Route>
+        <Route path='polynomial' element = {<PolynomialRegression/>}></Route>
         <Route path='/Default' element = {<Default />}></Route>
         <Route path='/Q&A'element = {<QandA />}></Route>
       </Routes>

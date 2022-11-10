@@ -14,7 +14,7 @@ export default function Lagarange(){
         var Y_point = document.getElementById("y_point").value;
         console.log("Y = "+Y_point);
         var ans = Cal(Matx,Maty,X_point,Y_point);
-        document.getElementById("Showans").innerHTML = "Y = "+ans.toFixed(4);
+        document.getElementById("Showans").innerHTML = "ans = "+ans.toFixed(4);
     }
     function Cal(Matx,Maty,x_point,y_point){
         var L;
