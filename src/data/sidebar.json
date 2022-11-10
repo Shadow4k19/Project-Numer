@@ -89,15 +89,15 @@
                 "path": "/Default"
             },
             {
-                "title": "I Don't know",
+                "title": "Linear Regression",
+                "path": "/linearregression"
+            },
+            {
+                "title": "Polynomial Regression",
                 "path": "/Default"
             },
             {
-                "title": "I Don't know",
-                "path": "/Default"
-            },
-            {
-                "title": "I Don't know",
+                "title": "Multiple Regression",
                 "path": "/Default"
             }
         ]

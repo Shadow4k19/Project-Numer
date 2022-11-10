@@ -37,7 +37,7 @@ export default function Lagarange(){
         return y;
     }
     return(
-            <div><h1 style={{color:'black',paddingLeft:'715px',paddingTop:'75px'}}>Lagarange</h1>
+            <div><h1 style={{color:'black',paddingLeft:'715px',paddingTop:'75px'}}>Linear Regression</h1>
             <div className="containerBi" style={{color:'black'}}>
             <form>
                 <label style={{paddingLeft:'90px'}}>
@@ -48,6 +48,10 @@ export default function Lagarange(){
                     <input id = "Matnum2" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                     <input id = "Matnum3" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                     <input id = "Matnum4" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnum5" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnum6" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnum7" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnum8" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                 <div>
                 <label style={{paddingLeft:'90px'}}>
                     <h4>Y :</h4>
@@ -57,6 +61,10 @@ export default function Lagarange(){
                     <input id = "Matnumy2" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                     <input id = "Matnumy3" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                     <input id = "Matnumy4" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnumy5" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnumy6" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnumy7" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                    <input id = "Matnumy8" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                 </div>
                 <label>
                     <h4>X_point :</h4>
