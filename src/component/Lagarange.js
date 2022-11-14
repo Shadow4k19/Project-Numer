@@ -11,12 +11,11 @@ export default function Lagarange(){
         }
         var X_point = document.getElementById("x_point").value;
         console.log("X ="+X_point);
-        var Y_point = document.getElementById("y_point").value;
-        console.log("Y = "+Y_point);
-        var ans = Cal(Matx,Maty,X_point,Y_point);
+        var ans = Cal(Matx,Maty,X_point);
+        console.log(ans);
         document.getElementById("Showans").innerHTML = "ans = "+ans.toFixed(4);
     }
-    function Cal(Matx,Maty,x_point,y_point){
+    function Cal(Matx,Maty,x_point){
         var L;
         var y = 0;
         for(var i = 0 ; i < Matx.length ; i++){
@@ -30,10 +29,7 @@ export default function Lagarange(){
             //y += L * Maty[i];
             y += L * Maty[i];
             //console.log( L+"*"+Maty[i]+" = " +y);
-            y_point += L * Maty[i];
-            console.log(y_point);
         }
-        //console.log(y_point);
         return y;
     }
     return(
@@ -58,14 +54,10 @@ export default function Lagarange(){
                     <input id = "Matnumy3" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                     <input id = "Matnumy4" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
                 </div>
-                <label>
+                <label style={{paddingLeft:'135px'}}>
                     <h4>X_point :</h4>
                 </label>
                 <input id = "x_point" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
-                <label>
-                    <h4>Y_point :</h4>
-                </label>
-                <input id = "y_point" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
             </form>
             <div id = 'Matrix' className="matrix" style={{paddingTop:'10px'}}></div>
             <div style={{paddingLeft:'160px'}}>
