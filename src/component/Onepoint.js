@@ -1,5 +1,6 @@
 import React from "react";
 import ChartOne from "./ChartOne";
+import * as ReactDOM from 'react-dom';
 const math = require('mathjs');
 
 var Xone = [];
@@ -30,6 +31,12 @@ export default function Onepoint(){
         var X = document.getElementById("x").value;
         var Function = document.getElementById("Function").value;
         var Xans = Onepoint(X,Function);
+        const Rechart = ReactDOM.createRoot(document.getElementById("showchart"));
+        Rechart.render(
+            <div>
+             <ChartOne data = {{x:Xone,loop:loopone}}/>
+            </div>
+        );
         console.log(X);
         console.log(Function);
         document.getElementById("ShowAns").innerHTML = Xans;

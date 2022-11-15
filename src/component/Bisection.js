@@ -1,6 +1,7 @@
 import React from "react";
 import './Bisection.css';
 import ChartBI from './ChartBi';
+import * as ReactDOM from 'react-dom';
 const math = require('mathjs');
 
 var xlbi = [];
@@ -46,6 +47,12 @@ export default function Bisection(){
         var Xr = document.getElementById("xr").value;
         var Function = document.getElementById("Function").value;
         var Xm = BisectionFuction(Xl,Xr,Function);
+        const Rechart = ReactDOM.createRoot(document.getElementById("showchart"));
+        Rechart.render(
+            <div>
+            <ChartBI data = {{xm:xmbi, xl:xlbi , xr:xrbi ,loop:loopbi}}/>
+            </div>
+        );
         console.log(Xl);
         console.log(Xr);
         console.log(Function);
