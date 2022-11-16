@@ -24,6 +24,7 @@ export default function Lagarange(){
         console.log(ans);
         document.getElementById("Showans").innerHTML = "ans = "+ans.toFixed(4);
         document.getElementById("Showproof").innerHTML  = str;
+        LFP = [];
     }
     function Proof(y,fp){
         var ansfp = [];
