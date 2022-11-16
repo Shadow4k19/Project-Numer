@@ -2,6 +2,8 @@ import React from "react";
 import './Bisection.css';
 
 export default function Lagarange(){
+    var LFP = [];
+    var ansproof = 0;
     function getMat(){
         var Matx = [];
         var Maty = [];
@@ -12,8 +14,28 @@ export default function Lagarange(){
         var X_point = document.getElementById("x_point").value;
         console.log("X ="+X_point);
         var ans = Cal(Matx,Maty,X_point);
+        var ansfp = Proof(Maty,LFP);
+        var str = ""; 
+        for(i = 0 ; i < ansfp.length ; i++){
+            str += Maty[i] +" x " + LFP[i].toFixed(4) + " = " + ansfp[i]+"<br>";
+        }
+        str += "Result = " + ansproof.toFixed(4);
+        console.log(ansfp);
         console.log(ans);
         document.getElementById("Showans").innerHTML = "ans = "+ans.toFixed(4);
+        document.getElementById("Showproof").innerHTML  = str;
+    }
+    function Proof(y,fp){
+        var ansfp = [];
+        ansproof = 0;
+        console.log(y);
+        for(var i = 0 ;i < y.length ; i++){
+            ansfp[i] = y[i]*fp[i];
+            ansproof += ansfp[i]; 
+            ansfp[i] = ansfp[i].toFixed(4);
+            console.log(ansfp[i]);
+        }
+        return ansfp;
     }
     function Cal(Matx,Maty,x_point){
         var L;
@@ -26,6 +48,7 @@ export default function Lagarange(){
                 //console.log(L);
                 }
             }
+            LFP.push(L);
             //y += L * Maty[i];
             y += L * Maty[i];
             //console.log( L+"*"+Maty[i]+" = " +y);
@@ -64,6 +87,7 @@ export default function Lagarange(){
                 <button onClick={getMat}>Calculate</button>
             </div>
             <div id = 'Showans' style={{paddingLeft:'145px',paddingTop:'50px'}}></div>
+            <div id = 'Showproof' style={{paddingLeft:'120px',paddingTop:'50px'}}></div>
             </div>
             </div>
         )
