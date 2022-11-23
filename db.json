@@ -1,27 +1,26 @@
 {
     "Bisection":[
-        {"id":"0","Xl":"0","Xr":"0","Function":"x^2-13"},
-        {"id":"1","Xl":"1.5","Xr":"2","Function":"x^2-13"},
-        {"id":"2","Xl":"2.5","Xr":"3","Function":"x^2-26"},
+        {"id":"1","Xl":"1","Xr":"2","Function":"x^2-13"},
+        {"id":"2","Xl":"1.5","Xr":"2","Function":"x^2-13"},
+        {"id":"3","Xl":"2.5","Xr":"3","Function":"x^2-26"},
         {"id":"4","Xl":"3.5","Xr":"4","Function":"x^2-39"}
     ],
     "Falseposition":[
-        {"id":"0","Xl":"0","Xr":"0","Function":"x^2-13"},
-        {"id":"1","Xl":"1.5","Xr":"2","Function":"x^2-13"},
-        {"id":"2","Xl":"2.5","Xr":"3","Function":"x^2-26"},
+        {"id":"1","Xl":"0.02","Xr":"0.03","Function":"1-x*43"},
+        {"id":"2","Xl":"1.5","Xr":"2","Function":"x^2-13"},
+        {"id":"3","Xl":"2.5","Xr":"3","Function":"x^2-26"},
         {"id":"4","Xl":"3.5","Xr":"4","Function":"x^2-39"}
     ],
     "Onepoint":[
-        {"id":"0","X":"0","Function":"(1+2*x)/4"},
-        {"id":"1","X":"0","Function":"(1+2*x)/6"},
-        {"id":"2","X":"0","Function":"(1+2*x)/8"},
-        {"id":"3","X":"0","Function":"(1+2*x)/10"}
+        {"id":"1","X":"0","Function":"(1+2*x)/4"},
+        {"id":"2","X":"0","Function":"(1+2*x)/6"},
+        {"id":"3","X":"0","Function":"(1+2*x)/8"},
+        {"id":"4","X":"0","Function":"(1+2*x)/10"}
     ],
     "Newton_raphson":[
-        {"id":"0","X":"0","Function":"(1+2*x)/4"},
-        {"id":"1","X":"0","Function":"(1+2*x)/6"},
-        {"id":"2","X":"0","Function":"(1+2*x)/8"},
-        {"id":"3","X":"0","Function":"(1+2*x)/10"}
+        {"id":"1","X":"1","Function":"x^2-7"},
+        {"id":"2","X":"2","Function":"x^2-14"},
+        {"id":"3","X":"3","Function":"x^2-21"},
+        {"id":"4","X":"4","Function":"x^2-28"}
     ]
-
 }

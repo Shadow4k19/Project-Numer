@@ -125,10 +125,9 @@ export default function ChamerRule(){
             <label>
                 <h4 style={{paddingLeft:'50px'}}>Number of Matrix :</h4>
             </label> 
-                <input id = "Matnum" placeholder=" " type='number' style={{ width: "40px" }} size='1'></input>
+                <input id = "Matnum" placeholder=" " type='number' style={{ width: "40px"}} size='1' onChange={Getmat} ></input>
         </form>
         <div style={{paddingLeft:'170px'}}>
-            <button onClick={Getmat}>Submit</button>
         </div>
         <div id = 'Matrix' className="matrix" style={{paddingTop:'10px'}}></div>
         <div style={{paddingLeft:'160px',paddingTop:'20px'}}>
