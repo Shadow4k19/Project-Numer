@@ -11,6 +11,7 @@ var loopbi = [];
 
 export default function Bisection(){
     var value;
+    //ไม่อยากใช้Usestate นะแต่มันจำเป็น Thank every one to help me mak mak :) :) :) :)
     var [getXl,setXl] = useState('');
     var [getXr,setXr] = useState('');
     var [getFunc,setFunc] = useState('');
