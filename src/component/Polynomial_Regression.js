@@ -1,12 +1,14 @@
 import React from "react";
 import './Bisection.css';
+import * as ReactDOM from 'react-dom';
+import ApexChartRegression from "./ChartRegression";
 const math = require('mathjs');
 
 export default function PolynomialRegression(){
     var MatXfp = [];
     var MatYfp = [];
     var chartansPoly = [];
-    var Showmatrix = [];
+    var chartans = [];
     function getMat(){
         var Matx = [];
         var Maty = [];
@@ -18,7 +20,20 @@ export default function PolynomialRegression(){
         }
         console.log(Matx+Maty);
         var ans = Cal(Matx,Maty);
-        document.getElementById("Showans").innerHTML = "ans = "+ans +" PLS NOT F";
+        var chartanspoly = Proof2(Matx,ans);
+        console.log(chartanspoly);
+        console.log(chartansPoly);
+        document.getElementById("Showans").innerHTML = "ans = "+ans;
+        const Rechart = ReactDOM.createRoot(document.getElementById("Showchart"));
+        Rechart.render(
+            <div>
+            <ApexChartRegression data = {{y:MatYfp, ansfp:chartans,ansPoly:chartansPoly,x:MatXfp}} />
+            </div>
+        );
+        MatXfp = [];
+        MatYfp = [];
+        chartansPoly = [];
+        chartans = [];
     }
     function Proof2(x,anspoly){
         var Y = [];
@@ -162,6 +177,9 @@ export default function PolynomialRegression(){
                 <button onClick={getMat}>Calculate</button>
             </div>
             <div id = 'Showans' style={{paddingLeft:'135px',paddingTop:'50px'}}></div>
+            <div id = 'Showchart' style={{paddingLeft:'50px',paddingTop:'20px'}}>
+                <ApexChartRegression data = {{y:MatYfp, ansfp:chartans,x:MatXfp,ansPoly:chartansPoly}} />
+            </div>
             </div>
             </div>
         )
